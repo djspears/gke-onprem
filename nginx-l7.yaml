@@ -1,0 +1,14 @@
+#Past in the following yaml configuration
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+ name: nginx-l7
+ namespace: default
+spec:
+ rules:
+   - host: nginx.gkeonprem.com
+     http:
+       paths:
+         - backend:
+             serviceName: nginx-ingress
+             servicePort: 80
