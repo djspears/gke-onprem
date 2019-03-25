@@ -88,8 +88,8 @@ spec:
           # value: env
         ports:
         - containerPort: 6379
-#      nodeSelector:
-#        pool: db-pool
+      nodeSelector:
+        pool: db-pool
 ---
 #Paste the following yaml configuration
 apiVersion: v1
