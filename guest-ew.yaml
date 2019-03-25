@@ -91,27 +91,25 @@ spec:
 #      nodeSelector:
 #        pool: db-pool
 ---
+#Paste the following yaml configuration
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend
- # annotations:
- #   cloud.google.com/load-balancer-type: "Internal"
-  labels:
+ name: frontend
+ namespace: default
+labels:
     app: guestbook
     tier: frontend
 spec:
-  # if your cluster supports it, uncomment the following to automatically create
-  # an external load-balanced IP for the frontend service.
-  type: LoadBalancer
-  ports:
-  - port: 80
-  protocol: TCP
- # targetPort: 80
-  selector:
-    app: guestbook
-    tier: frontend
-  loadBalancerIP: 10.0.10.9
+ type: LoadBalancer
+ ports:
+ - port: 80
+   protocol: TCP
+   targetPort: 80
+ selector:
+   app: guestbook
+   tier: frontend
+ loadBalancerIP: 10.0.10.10
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
